@@ -16,3 +16,16 @@ Example usage to start celery beat:
 
 You must mount a django volume volume to run a specific application.  The default volume inside in the container is `/opt/django/app`.
 
+Environment Variables
+---------------------
+
+**BROKER_URL** - The URL to the message broker, eg RabbitMQ.
+
+**INSTANCE_TYPE** - What type of celery worker to spawn. Valid values are `beat` and `worker`. (Default: worker)
+
+**DJANGO_INIT_SCRIPT** - A script to run when starting up
+
+**PG_ISREADY_URI** - Run pg_isready with this URI before anything else. In other words, wait for the database to be ready and accepting connections.
+
+Typically you will then have your own convention for environment variables used in Django's settings.py such as the DB_URI and DEBUG mode.
+

@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# See if we need to wait on any databases
+if [ -n "${PG_ISREADY_URI}" ];
+then
+  until pg_isready -d ${PG_ISREADY_URI}
+  do
+    sleep 5
+  done
+fi
+
 if [ -z "${BROKER_URL}" ]
 then
     echo "No BROKER_URL specified!"
