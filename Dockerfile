@@ -4,6 +4,7 @@ MAINTAINER Johann du Toity <johann@impulsecloud.com.au>
 
 RUN apt-get update && apt-get install -y \
   supervisor && \
+  pip install lxml && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD . /opt/django/
