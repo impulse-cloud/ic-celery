@@ -5,6 +5,7 @@ MAINTAINER Johann du Toity <johann@impulsecloud.com.au>
 RUN apt-get update && apt-get install -y \
   supervisor && \
   pip install lxml && \
+  pip install cryptography && \
   pip install Pillow && \
   pip install SQLAlchemy && \
   pip install psycopg2 && \
