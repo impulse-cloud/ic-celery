@@ -1,6 +1,6 @@
-FROM impulsecloud/ic-ubuntu:latest
+FROM impulsecloud/ic-ubuntu:python3.5
 
-MAINTAINER Johann du Toity <johann@impulsecloud.com.au>
+MAINTAINER Johann du Toit <johann@winkreports.com>
 
 RUN apt-get update && apt-get install -y \
   supervisor && \
@@ -15,8 +15,6 @@ RUN apt-get update && apt-get install -y \
 ADD . /opt/django/
 
 RUN ln -s /opt/django/supervisord.conf /etc/supervisor/conf.d/
-#    ln -s /opt/django/celeryd.conf /etc/supervisor/conf.d/; \
-#    ln -s /opt/django/celerybeat.conf /etc/supervisor/conf.d/
 
 VOLUME ["/opt/django/app"]
 EXPOSE 80
