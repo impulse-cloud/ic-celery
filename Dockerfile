@@ -10,10 +10,11 @@ RUN apt-get update && apt-get install -y \
   pip3 install SQLAlchemy && \
   pip3 install psycopg2 && \
   pip3 install pycrypto && \
-  pip3 install --exists-action=s -r requirements.txt && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD . /opt/django/
+
+RUN pip3 install --exists-action=s -r /opt/django/requirements.txt
 
 RUN ln -s /opt/django/supervisord.conf /etc/supervisor/conf.d/
 
