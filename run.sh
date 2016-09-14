@@ -2,6 +2,21 @@
 
 set -o verbose
 
+function clean_stop {
+  # supervisord will tell us the pid of celery
+  CELERYPID=$(/usr/bin/supervisorctl pid celery)
+
+  # Send SIGUSR1 to each child process, which triggers a SoftTimeLimitExceeded exception
+  pgrep -P $CELERYPID | while read x; do kill -USR1 $x; done
+
+  # Normal warm shutdown of celery
+  /usr/bin/supervisorctl stop all
+  exit
+}
+
+# Docker will send TERM when it's time to shutdown
+trap clean_stop SIGTERM
+
 # See if we need to wait on any databases
 if [ -n "${PG_ISREADY_URI}" ];
 then
