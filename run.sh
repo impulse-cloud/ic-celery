@@ -69,4 +69,5 @@ then
         (eval "${DJANGO_INIT_SCRIPT}")
 fi
 
-/usr/bin/supervisord
+/usr/bin/supervisord &
+wait # This allows the signal trap to work
