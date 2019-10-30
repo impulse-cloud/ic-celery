@@ -1,4 +1,4 @@
-FROM impulsecloud/ic-ubuntu:16.04
+FROM impulsecloud/ic-ubuntu:18.04
 
 MAINTAINER Johann du Toit <johann@winkreports.com>
 
