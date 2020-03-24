@@ -95,7 +95,7 @@ pystan==2.17.1.0
 pytracking==0.2.0
 python-dateutil==2.7.3
 pytz==2018.5
-# pyxero==?  - Code migration needed to use PyPI version
+# pyxero==?  - Code migration needed to use PyPI version.
 https://github.com/impulse-cloud/pyxero/archive/purchase_orders.zip#egg=pyxero
 PyYAML==4.2b4
 raven==6.9.0
